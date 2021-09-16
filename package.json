@@ -1,6 +1,11 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "start": "lerna run build & lerna run start --parallel",
+    "start:prod": "lerna run build & lerna run start --parallel",
+    "build": "lerna run build"
+  },
   "dependencies": {
     "classnames": "^2.3.1",
     "react": "^17.0.2",

@@ -1,0 +1,6 @@
+export { addEnemy } from './addEnemy'
+export { addEnemyGroup } from './addEnemyGroup'
+export { addEnemyPosition } from './addEnemyPosition'
+export { changeEnemyPosition } from './changeEnemyPosition'
+export { changeEnemyRotation } from './changeEnemyRotation'
+export { clearEnemyGroup } from './clearEnemyGroup'
