@@ -1,16 +1,29 @@
 import { createStore } from 'effector'
 
 import { EnemyPosition } from '../../types'
-import { addEnemyPosition, changeEnemyPosition, clearEnemyGroup } from '../events'
+import {
+  addEnemyPosition,
+  changeEnemyPositionX,
+  changeEnemyPositionY,
+  clearEnemyGroup,
+} from '../events'
 
 export const $enemyPosition = createStore<EnemyPosition>({})
   .on(addEnemyPosition, (prevVal, val) => ({
     ...prevVal,
     ...val,
   }))
-  .on(changeEnemyPosition, (prevVal, val) => {
-    Object.keys(prevVal).map((id) => (prevVal[id].x = prevVal[id].x + val))
-    //console.log('v', prevVal)
+  .on(changeEnemyPositionX, (prevVal, val) => {
+    Object.keys(prevVal).forEach((id) => {
+      prevVal[id].position.setX(prevVal[id].position.x + val)
+    })
+
+    return { ...prevVal }
+  })
+  .on(changeEnemyPositionY, (prevVal, val) => {
+    Object.keys(prevVal).forEach((id) => {
+      prevVal[id].position.setY(prevVal[id].position.y + val)
+    })
 
     return { ...prevVal }
   })

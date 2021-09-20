@@ -8,7 +8,8 @@ import {
   $enemyPosition,
   $enemyRotation,
   addEnemyGroup,
-  changeEnemyPosition,
+  changeEnemyPositionX,
+  changeEnemyPositionY,
   changeEnemyRotation,
   clearEnemyGroup,
 } from '../../store'
@@ -29,22 +30,39 @@ const Enemies: React.FC = () => {
         type: EnemyType.Solder,
         isKill: false,
       },
+      {
+        type: EnemyType.Solder,
+        isKill: false,
+      },
+      {
+        type: EnemyType.Solder,
+        isKill: false,
+      },
+      {
+        type: EnemyType.Solder,
+        isKill: false,
+      },
     ])
     return () => clearEnemyGroup()
   }, [])
 
   useFrame(({ clock: { elapsedTime } }) => {
-    changeEnemyPosition(Math.sin(elapsedTime) / 1000)
+    changeEnemyPositionX((Math.sin(elapsedTime) / 1000) * width)
+    //changeEnemyPositionY(Math.sin(elapsedTime) / 1000)
     changeEnemyRotation(Math.sin(elapsedTime) / 3)
   })
 
   //console.log('enemyPosition', enemyPosition)
   return (
     <group>
-      {Object.keys(enemies).map((enemyId, i) => (
+      {Object.keys(enemies).map((enemyId) => (
         <mesh
           key={enemyId}
-          position={[enemyPosition[enemyId].x * width, enemyPosition[enemyId].y + 2, 0]}
+          position={[
+            enemyPosition[enemyId].position.x,
+            enemyPosition[enemyId].position.y,
+            enemyPosition[enemyId].position.z,
+          ]}
           rotation={enemyRotation}
           visible={!enemies[enemyId].isKill}
         >

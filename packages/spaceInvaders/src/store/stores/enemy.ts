@@ -1,14 +1,20 @@
 import { createStore, sample } from 'effector'
+import * as THREE from 'three'
 
 import uniqueIdGenerator from '../../helper/uniqueIdGenerator'
 import { Enemy, EnemyPosition } from '../../types'
-import { addEnemy, addEnemyGroup, addEnemyPosition, clearEnemyGroup } from '../events'
+import { addEnemy, addEnemyGroup, addEnemyPosition, clearEnemyGroup, killEnemy } from '../events'
 
 export const $enemy = createStore<Enemy>({})
   .on(addEnemy, (prevVal, val) => ({
     ...prevVal,
     ...val,
   }))
+  .on(killEnemy, (prevVal, val) => {
+    prevVal[val].isKill = true
+    console.log('killEnemy', val, prevVal)
+    return { ...prevVal }
+  })
   .reset([clearEnemyGroup])
 
 const targetCreateEnemy = sample({
@@ -21,12 +27,11 @@ const targetCreateEnemy = sample({
         const enemyId = uniqueIdGenerator('enemies')
         enemies.push({
           enemy: {
-            [enemyId]: enemyRows[row],
+            [enemyId]: { ...enemyRows[row] },
           },
           enemyPosition: {
             [enemyId]: {
-              x: 6 > i ? -1 * (i / 10) : (i - 5) / 10,
-              y: row,
+              position: new THREE.Vector3(6 > i ? -1 * i : i - 5, row, 0),
             },
           },
         })

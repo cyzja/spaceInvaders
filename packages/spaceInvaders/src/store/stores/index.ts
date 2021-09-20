@@ -1,3 +1,5 @@
 export { $enemy } from './enemy'
 export { $enemyPosition } from './enemyPosition'
 export { $enemyRotation } from './enemyRotation'
+export { $laserPositions } from './laserPositions'
+export { $playerPosition } from './playerPosition'
