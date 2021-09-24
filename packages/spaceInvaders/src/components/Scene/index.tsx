@@ -6,22 +6,17 @@ import { Canvas, useLoader } from '@react-three/fiber'
 
 import Enemies from '../Enemies'
 import LaserController from '../LaserController'
+import LaserEnemies from '../LaserEnemies'
+import LaserEnemiesController from '../LaserEnemiesController'
 import Lasers from '../Lasers'
 import StarShipModel from '../StarShipModel'
 import TargetController from '../TargetController'
+import TargetPlayerController from '../TargetPlayerController'
 import styles from './styles.module.css'
-const Bg = () => {
-  const texture = useLoader(THREE.TextureLoader, '/img/bg.jpeg')
-  const scale = useAspect(1286, 574, 1.5)
-  return (
-    <Plane scale={scale} material-map={texture}>
-      <Stars />
-    </Plane>
-  )
-}
+
 const Scene: React.FC = () => {
   return (
-    <div className={styles.scene}>
+    <div className={styles.scene} style={{ background: 'url(/img/bg.jpeg)' }}>
       <></>
       <Canvas>
         <OrthographicCamera makeDefault position={[0, 0, 12]} zoom={50}></OrthographicCamera>
@@ -29,14 +24,14 @@ const Scene: React.FC = () => {
         <pointLight position={[10, 10, 5]} />
         <pointLight position={[-10, -10, -5]} />
         <Suspense fallback={<>mmmm</>}>
-          <Bg />
-
           <Enemies />
           <StarShipModel rotation={[0.99, 0, 0]} scale={0.2} />
           <Lasers />
           <LaserController />
+          <LaserEnemiesController />
+          <LaserEnemies />
           <TargetController />
-
+          <TargetPlayerController />
           <Environment preset="night" />
         </Suspense>
       </Canvas>

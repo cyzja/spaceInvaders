@@ -32,8 +32,13 @@ export enum LaserType {
   Default = 'Default',
 }
 
-//export type Vector3 = [x: number, y: number, z: number]
-
 export interface PlayerPosition {
   position: Vector3
+}
+
+export enum GameStatus {
+  Play = 'Play',
+  Pause = 'Pause',
+  GameOver = 'GameOver',
+  Win = 'Win',
 }

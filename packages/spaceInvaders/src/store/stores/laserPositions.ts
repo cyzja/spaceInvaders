@@ -34,7 +34,7 @@ sample({
       ...{
         [uniqueIdGenerator('laser')]: {
           position: playerPosition,
-          //type: addLaser,
+          type: addLaser,
         },
       },
     } as LaserPosition
