@@ -5,6 +5,7 @@ import { Environment, OrthographicCamera, Plane, Stars, useAspect } from '@react
 import { Canvas, useLoader } from '@react-three/fiber'
 
 import Enemies from '../Enemies'
+import GameOverController from '../GameOverController'
 import LaserController from '../LaserController'
 import LaserEnemies from '../LaserEnemies'
 import LaserEnemiesController from '../LaserEnemiesController'
@@ -12,6 +13,7 @@ import Lasers from '../Lasers'
 import StarShipModel from '../StarShipModel'
 import TargetController from '../TargetController'
 import TargetPlayerController from '../TargetPlayerController'
+import WinController from '../WinController'
 import styles from './styles.module.css'
 
 const Scene: React.FC = () => {
@@ -32,7 +34,8 @@ const Scene: React.FC = () => {
           <LaserEnemies />
           <TargetController />
           <TargetPlayerController />
-          <Environment preset="night" />
+          <GameOverController />
+          <WinController />
         </Suspense>
       </Canvas>
     </div>

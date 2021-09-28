@@ -2,8 +2,15 @@ import { createStore, sample } from 'effector'
 import * as THREE from 'three'
 
 import uniqueIdGenerator from '../../helper/uniqueIdGenerator'
-import { Enemy, EnemyPosition } from '../../types'
-import { addEnemy, addEnemyGroup, addEnemyPosition, clearEnemyGroup, killEnemy } from '../events'
+import { Enemy, EnemyPosition, GameStatus } from '../../types'
+import {
+  addEnemy,
+  addEnemyGroup,
+  addEnemyPosition,
+  changeGameStatus,
+  clearEnemyGroup,
+  killEnemy,
+} from '../events'
 
 export const $enemy = createStore<Enemy>({})
   .on(addEnemy, (prevVal, val) => ({
@@ -47,4 +54,17 @@ targetCreateEnemy.watch((enemies) => {
     addEnemy(enemy)
     addEnemyPosition(enemyPosition)
   })
+})
+
+sample({
+  clock: killEnemy,
+  source: [$enemy],
+  fn: ([enemy]) => {
+    const liveEnemy = Object.values(enemy).reduce((acc, val) => (val.isKill ? acc : acc + 1), 0)
+    if (liveEnemy === 0) {
+      return GameStatus.Win
+    }
+    return GameStatus.Play
+  },
+  target: changeGameStatus,
 })

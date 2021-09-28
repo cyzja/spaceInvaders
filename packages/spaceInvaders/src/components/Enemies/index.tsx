@@ -7,19 +7,21 @@ import {
   $enemy,
   $enemyPosition,
   $enemyRotation,
+  $gameStatus,
   addEnemyGroup,
   changeEnemyPositionX,
   changeEnemyPositionY,
   changeEnemyRotation,
   clearEnemyGroup,
 } from '../../store'
-import { EnemyType } from '../../types'
+import { EnemyType, GameStatus } from '../../types'
 import EnemyStarShipModel from '../EnemyStarShipModel'
 
 const Enemies: React.FC = () => {
   const enemies = useStore($enemy)
   const enemyPosition = useStore($enemyPosition)
   const enemyRotation = useStore($enemyRotation)
+  const gameStatus = useStore($gameStatus)
 
   const { viewport } = useThree()
   const { width, height } = viewport
@@ -47,12 +49,14 @@ const Enemies: React.FC = () => {
   }, [])
 
   useFrame(({ clock: { elapsedTime } }) => {
-    changeEnemyPositionX((Math.sin(elapsedTime) / 1000) * width)
-    //changeEnemyPositionY(Math.sin(elapsedTime) / 1000)
-    changeEnemyRotation(Math.sin(elapsedTime) / 3)
+    if (gameStatus === GameStatus.Play) {
+      changeEnemyPositionX((Math.sin(elapsedTime) / 1000) * width)
+      changeEnemyRotation(Math.sin(elapsedTime) / 3)
+    }
   })
 
-  //console.log('enemyPosition', enemyPosition)
+  if (gameStatus !== GameStatus.Play) return null
+
   return (
     <group>
       {Object.keys(enemies).map((enemyId) => (

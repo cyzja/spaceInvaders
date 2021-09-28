@@ -3,8 +3,9 @@ import * as THREE from 'three'
 
 import { LASER_MAX_DISTANCE } from '../../constants'
 import uniqueIdGenerator from '../../helper/uniqueIdGenerator'
-import { LaserPosition } from '../../types'
+import { GameStatus, LaserPosition } from '../../types'
 import { addLaser, changeLaserPotions, killLaser } from '../events'
+import { $gameStatus } from './gameStatus'
 import { $playerPosition } from './playerPosition'
 
 export const $laserPositions = createStore<LaserPosition>({})
@@ -27,8 +28,11 @@ export const $laserPositions = createStore<LaserPosition>({})
 
 sample({
   clock: addLaser,
-  source: [$laserPositions, $playerPosition],
-  fn: ([laserPositions, playerPosition]) => {
+  source: [$laserPositions, $playerPosition, $gameStatus],
+  fn: ([laserPositions, playerPosition, gameStatus]) => {
+    if (gameStatus !== GameStatus.Play) {
+      return laserPositions
+    }
     return {
       ...laserPositions,
       ...{
