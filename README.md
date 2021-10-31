@@ -4,7 +4,9 @@
     <td></td>
  </tr>
  <tr>
- 	 <td>![photo](https://media-exp1.licdn.com/dms/image/C5603AQFmXO2YpUPKpg/profile-displayphoto-shrink_100_100/0/1517349005064?e=1641427200&v=beta&t=6hYPo_lVbPePTKAWyWK7G4f0PvOG-vOBcyAxb_S2Uq0)</td>
+ 	 <td>
+      <img src="https://github.com/surovtsev-alex/spaceInvaders/blob/main/packages/cra/public/img/photo_cv.jpeg?raw=true" />
+      </td>
     <td>
 		33 years, date of birth June 13, 1988 <br/>
 		alexandr@surovtsev.by <br/>
