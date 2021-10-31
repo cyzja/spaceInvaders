@@ -10,8 +10,6 @@
     <td>
 		33 years, date of birth June 13, 1988 <br/>
 		alexandr@surovtsev.by <br/>
-		PROFESSIONAL EXPERIENCE  — 10+ years <br/>  
-		Nov 2016 — current<br/>
 	</td>
  </tr>
 </table>
