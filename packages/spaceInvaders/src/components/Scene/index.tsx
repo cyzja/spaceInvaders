@@ -10,6 +10,7 @@ import LaserController from '../LaserController'
 import LaserEnemies from '../LaserEnemies'
 import LaserEnemiesController from '../LaserEnemiesController'
 import Lasers from '../Lasers'
+import Loader from '../Loader'
 import StarShipModel from '../StarShipModel'
 import TargetController from '../TargetController'
 import TargetPlayerController from '../TargetPlayerController'
@@ -25,7 +26,7 @@ const Scene: React.FC = () => {
         <ambientLight intensity={0.3} />
         <pointLight position={[10, 10, 5]} />
         <pointLight position={[-10, -10, -5]} />
-        <Suspense fallback={<>mmmm</>}>
+        <Suspense fallback={<Loader />}>
           <Enemies />
           <StarShipModel rotation={[0.99, 0, 0]} scale={0.2} />
           <Lasers />

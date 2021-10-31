@@ -1,0 +1,29 @@
+.modalHeader {
+    padding: 12px;
+
+    display: grid;
+    grid-template-columns: auto 30px;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.title {
+    color: #e6e6e6;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.closeButton {
+    width: 30px;
+
+    text-decoration: none;
+    color: currentColor;
+    cursor: pointer;
+}
+
+@media (min-width: 1025px) {
+    .modalHeader {
+        background: #373737;
+    }
+}

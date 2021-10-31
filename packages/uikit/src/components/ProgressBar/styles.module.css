@@ -1,0 +1,24 @@
+.loaderWrapper {
+    width: 100vw;
+    height: 100vh;
+    margin: -8px;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    display: grid;
+    align-content: space-around;
+    justify-items: center;
+}
+
+.progressbar {
+    background-color: gray;
+    border-radius: 13px;
+    /* (height of inner div) / 2 + padding */
+    padding: 3px;
+}
+
+.progressbar>div {
+    background-color: orange;
+    height: 20px;
+    border-radius: 10px;
+}

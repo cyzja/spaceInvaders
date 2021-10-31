@@ -1,0 +1,21 @@
+.modalContent {
+    width: 100vw;
+    height: 100vh;
+
+    outline: none;
+    border-radius: 6px;
+    overflow: hidden;
+
+    background: #373737;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (min-width: 1025px) {
+    .modalContent {
+        width: max-content;
+        height: auto;
+
+        background: #414141;
+    }
+}

@@ -1,0 +1,193 @@
+.button {
+    padding: 4px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+
+    color: #eaeaea;
+    background: rgba(234, 234, 234, 0.3);
+}
+
+.button:not(:disabled):hover {
+    background: rgba(234, 234, 234, 0.5);
+}
+
+.button:not(:disabled):active {
+    background: rgba(234, 234, 234, 0.2);
+}
+
+.button:not(:disabled) {
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: .4;
+}
+
+.button.outline {
+    background: inherit;
+    color: rgba(234, 234, 234, 0.5);
+    border-color: currentColor;
+}
+
+.button.transparent {
+    background: inherit;
+    color: rgba(234, 234, 234, 0.5);
+    border: none;
+}
+
+.button:not(:disabled).transparent:hover,
+.button:not(:disabled).outline:hover {
+    color: rgba(234, 234, 234, 0.7);
+}
+
+.button:not(:disabled).transparent:active,
+.button:not(:disabled).outline:active {
+    color: rgba(234, 234, 234, 0.2);
+}
+
+.primary {
+    color: #262626;
+    background: #fcc539;
+}
+
+.primary:not(:disabled):hover {
+    background: #ffe500;
+}
+
+.primary:not(:disabled):active {
+    background: rgba(252, 197, 57, 0.6);
+}
+
+.primary.outline,
+.primary.transparent {
+    color: #fcc539;
+}
+
+.primary:not(:disabled).outline:hover,
+.primary:not(:disabled).transparent:hover {
+    color: #ffe500;
+}
+
+.primary:not(:disabled).outline:active,
+.primary:not(:disabled).transparent:active {
+    color: rgba(252, 197, 57, 0.6);
+}
+
+.second {
+    color: #fcc539;
+    background: rgba(252, 197, 57, 0.3);
+}
+
+.second:not(:disabled):hover {
+    background: rgba(252, 197, 57, 0.5);
+}
+
+.second:not(:disabled):active {
+    background: rgba(252, 197, 57, 0.2);
+}
+
+.second.outline,
+.second.transparent {
+    color: rgba(252, 197, 57, 0.5);
+}
+
+.second:not(:disabled).outline:hover,
+.second:not(:disabled).transparent:hover {
+    color: rgba(252, 197, 57, 0.7);
+}
+
+.second:not(:disabled).outline:active,
+.second:not(:disabled).transparent:active {
+    color: rgba(252, 197, 57, 0.2);
+}
+
+.green {
+    color: #ffffff;
+    background: #34cb85;
+}
+
+.green:not(:disabled):hover {
+    background: rgba(52, 203, 133, 0.5);
+}
+
+.green:not(:disabled):active {
+    background: rgba(52, 203, 133, 0.2);
+}
+
+.green.outline,
+.green.transparent {
+    color: rgba(52, 203, 133, 0.5);
+}
+
+.green:not(:disabled).outline:hover,
+.green:not(:disabled).transparent:hover {
+    color: rgba(52, 203, 133, 0.7);
+}
+
+.green:not(:disabled).outline:active,
+.green:not(:disabled).transparent:active {
+    color: rgba(52, 203, 133, 0.2);
+}
+
+.small {
+    padding: 3px 6px;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.large {
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+@media (min-width: 429px) {
+    .button {
+        padding: 5px 16px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .small {
+        padding: 3px 8px;
+        font-size: 11px;
+        line-height: 11px;
+    }
+
+    .large {
+        padding: 9px 18px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .button {
+        padding: 6px 20px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .small {
+        padding: 4px 10px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .large {
+        padding: 10px 20px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

@@ -1,12 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/SpaceInvadersWrapper';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Router from './components/Router'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router />
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
-
+  document.getElementById('root'),
+)

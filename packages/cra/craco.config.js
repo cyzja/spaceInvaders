@@ -3,6 +3,8 @@ const path = require('path')
 const { getLoader, loaderByName } = require('@craco/craco')
 const absolutePaths = [
   path.join(__dirname, '../spaceInvaders/'),
+  path.join(__dirname, '../movie/'),
+  path.join(__dirname, '../uikit/'),
 ]
 module.exports = {
   webpack: {

@@ -1,0 +1,5 @@
+export { default as Chest } from './Chest'
+export { default as MarsSurface } from './MarsSurface'
+export { default as Plane } from './Plane'
+export { default as Ship } from './Ship'
+export { default as Solder } from './Solder'
